@@ -52,16 +52,22 @@ If you want to start over with a fresh local database, run the following:
 
 Login to [https://appengine.google.com/] and create an application.
 
-Now we need to configure some things. Let's assume you named your application helloworld:
+Now we need to configure some things. Let's assume you named your application "helloworld":
 
+  * Fill in your application name on the first line of `app.yaml` as below:
+{{{
+  application: "helloworld"
+}}}
   * `python manage.py config --write-to-file`
-    * Enter a site name [[]]: *Hello World!*
-    * Enter a secret key [[a259515a9b1369b9349b12ce15c2a943]]: _just press return_
-    * Enter an appspot domain [[]]: *helloworld.appspot.com*
-    * Enabled Hosted Domains (yes|no) [[yes]]: *no*
-    * Enter your namespace domain [[helloworld.appspot.com]]: _just press return_
-    * Enter the nick for your admin user [[admin@sun-ra.appspot.com]]: _just press return_
-    * Enable SSL login (yes|no) [[yes]]: _just press return_
-    * Enter an email address to send from [[]]: *Enter your email address*
+{{{
+  Enter a site name []: Hello World!
+  Enter a secret key [a259515a9b1369b9349b12ce15c2a943]:
+  Enter an appspot domain []: helloworld.appspot.com
+  Enabled Hosted Domains (yes|no) [yes]: no
+  Enter your namespace domain [helloworld.appspot.com]:
+  Enter the nick for your admin user [admin@helloworld.appspot.com]:
+  Enable SSL login (yes|no) [yes]:
+  Enter an email address to send from []: your-email-address@gmail.com
+}}}
 
 Now do a quick verification of `local_settings.py` to see that it looks like you expected.
