@@ -71,3 +71,12 @@ Now we need to configure some things. Let's assume you named your application "h
 }}}
 
 Now do a quick verification of `local_settings.py` to see that it looks like you expected.
+
+== Deploying to App Engine ==
+  * `python manage.py update`
+
+While running the update script, you'll have to enter the email address and password you use to log into Google App Engine.
+
+When the update script has finished, browse to [http://helloworld.appspot.com/install] (remember to replace helloworld with your App Engine application name) and create a root user.
+
+Now sign up and start using your own instance of Jaikuengine! :)
