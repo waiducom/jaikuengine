@@ -1,0 +1,39 @@
+#summary How to install and deploy Jaikuengine using OS X
+
+= Introduction =
+
+Getting a Jaikuengine instance running on Google App Engine is probably a lot easier than you think. Still, it's not for everyone, at least not without instructions. So here goes.
+
+= Preconditions =
+
+  * OS X
+  * Python 2.5 or 2.6 (I assume 2.4 and 2.7 works too)
+  * PIL (python-imaging), docutils and mox
+
+= Installing =
+Using macports, it should be as simple as the following:
+
+  * Install [http://www.macports.org/install.php Macports] according to the instructions.
+  * `sudo port install subversion`
+  * `sudo port install py25-pil` or `sudo port install py26-pil` (Python 2.5 and 2.6 respectively)
+  * `sudo port install py25-docutils` or `sudo port install py26-docutils`
+  * `sudo port install mox`
+
+Observe that you can't (easily) run Jaikuengine in a virtualenv so `sudo` is the way to go for the moment.
+
+== Checking out Jaikuengine ==
+
+  * `svn checkout http://jaikuengine.googlecode.com/svn/trunk/ jaikuengine`
+  * `cd jaikuengine`
+
+== Local settings ==
+Take a look at both `settings.py` and `local_settings.py` if you're interested in seeing how Jaikuengine can be configured. You can use `local_settings.py` to override settings in `settings.py`.
+
+  * `cp local_settings.example.py local_settings.py
+
+== Run locally ==
+The below loads test data, changes you make will be overwritten next time you run it. The advantage is that you have a few users and channels already defined.
+
+  * `python manage.py testserver common/fixtures/*.json`
+
+Browse to [http://localhost:8080] and log in as username and password "popular".
