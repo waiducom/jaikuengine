@@ -37,3 +37,31 @@ The below loads test data, changes you make will be overwritten next time you ru
   * `python manage.py testserver common/fixtures/*.json`
 
 Browse to [http://localhost:8080] and log in as username and password "popular".
+
+If you want to run without test data, use the following:
+
+  * `python manage.py runserver localhost:8080`
+
+Browse to [http://localhost:8080/install] to install the root user. Afterwards, click sign up to create your user.
+
+If you want to start over with a fresh local database, run the following:
+
+  * `python manage.py flush`
+
+== App Engine setup ==
+
+Login to [https://appengine.google.com/] and create an application.
+
+Now we need to configure some things. Let's assume you named your application helloworld:
+
+  * `python manage.py config --write-to-file`
+    * Enter a site name [[]]: *Hello World!*
+    * Enter a secret key [[a259515a9b1369b9349b12ce15c2a943]]: _just press return_
+    * Enter an appspot domain [[]]: *helloworld.appspot.com*
+    * Enabled Hosted Domains (yes|no) [[yes]]: *no*
+    * Enter your namespace domain [[helloworld.appspot.com]]: _just press return_
+    * Enter the nick for your admin user [[admin@sun-ra.appspot.com]]: _just press return_
+    * Enable SSL login (yes|no) [[yes]]: _just press return_
+    * Enter an email address to send from [[]]: *Enter your email address*
+
+Now do a quick verification of `local_settings.py` to see that it looks like you expected.
